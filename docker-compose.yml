@@ -1,0 +1,29 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile
+    ports:
+      - "9000:9000"
+    volumes:
+      - '.:/var/www'
+    working_dir: /var/www
+    networks:
+      - laravel-network
+
+  db:
+    image: postgres:16
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_DB: laravel
+      POSTGRES_USER: laravel
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+    networks:
+      - laravel-network
+
+networks:
+  laravel-network:
+    driver: bridge
