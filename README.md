@@ -5,10 +5,16 @@
 1. Клонируйте репозиторий
 ```bash
 git clone https://github.com/VladimirMalykhin/test_task_laravel
+cd test_task_laravel
 ```
 2. Разверните окружение
 ```bash
 make up
+```
+
+3. Установите зависимости
+```bash
+make install
 ```
 
 3. Выполните миграции и сиды
