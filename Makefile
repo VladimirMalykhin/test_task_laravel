@@ -11,9 +11,14 @@ remake: # Перезапускает проект
 	@make destroy-all
 	@make up
 
+
 migrate:
 	docker compose exec app bash -c 'php artisan migrate'
 	docker compose exec app bash -c 'php artisan db:seed'
+
+
+install:
+	docker compose exec app bash -c 'composer install'
 
 bash: # Открывает консоль внутри контейнера `app`.
 	docker compose exec app bash
